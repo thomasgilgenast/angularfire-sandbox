@@ -1,3 +1,24 @@
 <h1>
   {{title}}
 </h1>
+
+<ul *ngFor="let fruit of fruitsquery | async">
+  <li class="text">
+    {{ fruit.color }} {{ fruit.name }}
+  </li>
+</ul>
+<input type="text" #newfruitname placeholder="Fruit name" />
+<input type="text" #newfruitcolor placeholder="Fruit color" />
+<button (click)="push(newfruitname.value, newfruitcolor.value)">Add fruit</button>
+<button (click)="filterBy('green')">Show only green fruit</button>
+<button (click)="filterBy('orange')">Show only orange fruit</button>
+<button (click)="filterBy(null)">Show all fruit</button>
+
+
+<h1>{{ item | async | json }}</h1>
+<input type="text" #newname placeholder="Name" />
+<input type="text" #newsize placeholder="Size" />
+<br />
+<button (click)="save(newname.value)">Set Name</button>
+<button (click)="update(newsize.value)">Update Size</button>
+<button (click)="delete()">Delete</button>
