@@ -22,3 +22,6 @@
 <button (click)="save(newname.value)">Set Name</button>
 <button (click)="update(newsize.value)">Update Size</button>
 <button (click)="delete()">Delete</button>
+
+<div> {{ (af.auth | async).uid }} </div>
+<button (click)="login()">Login</button>

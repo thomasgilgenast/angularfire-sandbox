@@ -14,7 +14,7 @@ export class AngularfireSandboxAppComponent {
   fruitsquery: FirebaseListObservable<any[]>;
   item: FirebaseObjectObservable<any>;
   colorSubject: Subject<any>;
-  constructor(af: AngularFire) {
+  constructor(public af: AngularFire) {
     this.colorSubject = new Subject();
     this.fruitsquery = af.database.list('/fruits', {
       query: {
@@ -39,5 +39,8 @@ export class AngularfireSandboxAppComponent {
   }
   filterBy(color: any) {
     this.colorSubject.next(color);
+  }
+  login() {
+    this.af.auth.login();
   }
 }
